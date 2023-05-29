@@ -1,0 +1,17 @@
+{
+  "name": "website-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "maksymilian.org",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cron": "^2.3.0",
+    "dotenv": "^16.0.3",
+    "nodemailer": "^6.9.1",
+    "puppeteer": "^20.1.1"
+  }
+}
