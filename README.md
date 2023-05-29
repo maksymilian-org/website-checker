@@ -1,4 +1,4 @@
-This Node.js application checks content in the any website in the cron and in case of diffrences in the choosen html elements it sents email with new content.
+This Node.js application checks the content of any website in the cron. In case of differences in the selected HTML elements, it sends an email with the new content.
 
 ## Environment variables:
 * `SITE_URL` - The URL of the site to check, e.g. `http://example.com`
