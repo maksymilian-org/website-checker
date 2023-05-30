@@ -10,7 +10,9 @@ export async function checkWebsite() {
   console.log("Start checking");
 
   let oldContent = "";
-  const contentPath = path.join(path.dirname(""), "./content.txt");
+  const contentPath = path.resolve("./content.txt");
+  console.log("File to compare", contentPath);
+
   try {
     oldContent = await readFile(contentPath, { encoding: "utf8" });
   } catch (error) {
