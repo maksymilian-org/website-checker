@@ -22,6 +22,7 @@ export async function checkWebsite() {
     const browser = await puppeteer.launch({
       headless: false,
       timeout: 60000,
+      args: ['--no-sandbox']
     });
 
     // Create a page
