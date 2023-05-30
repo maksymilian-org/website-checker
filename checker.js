@@ -20,7 +20,7 @@ export async function checkWebsite() {
   try {
     // Launch the browser
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: 'new',
       timeout: 60000,
       args: ['--no-sandbox']
     });
