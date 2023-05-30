@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import { readFile, writeFile } from "node:fs/promises";
 import dotenv from "dotenv";
+import path from "path";
 import { mail } from "./mail.js";
 
 dotenv.config();
@@ -9,8 +10,9 @@ export async function checkWebsite() {
   console.log("Start checking");
 
   let oldContent = "";
+  const contentPath = path.join(path.dirname(''), './content.txt');
   try {
-    oldContent = await readFile("./content.txt", { encoding: 'utf8' });
+    oldContent = await readFile(contentPath, { encoding: 'utf8' });
   } catch (error) {
     console.log(error);
   }
@@ -36,7 +38,7 @@ export async function checkWebsite() {
 
     console.log("Current content:", content);
 
-    await writeFile("./content.txt", content, { encoding: 'utf8' });
+    await writeFile(contentPath, content, { encoding: 'utf8' });
     
     if (oldContent !== content) {
       console.log("Sent email");

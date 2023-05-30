@@ -4,7 +4,7 @@ import { checkWebsite } from './checker.js';
 const app = express();
 const port = process.env.PORT || 3456;
 
-app.use(async (req, res, next) => {
+app.use('/healthz', async (req, res, next) => {
   console.log('Request: ', req.url);
   await checkWebsite();
   next();
