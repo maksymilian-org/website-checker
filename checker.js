@@ -10,9 +10,9 @@ export async function checkWebsite() {
   console.log("Start checking");
 
   let oldContent = "";
-  const contentPath = path.join(path.dirname(''), './content.txt');
+  const contentPath = path.join(path.dirname(""), "./content.txt");
   try {
-    oldContent = await readFile(contentPath, { encoding: 'utf8' });
+    oldContent = await readFile(contentPath, { encoding: "utf8" });
   } catch (error) {
     console.log(error);
   }
@@ -21,7 +21,7 @@ export async function checkWebsite() {
     // Launch the browser
     const browser = await puppeteer.launch({
       headless: false,
-      timeout: 60000
+      timeout: 60000,
     });
 
     // Create a page
@@ -38,8 +38,8 @@ export async function checkWebsite() {
 
     console.log("Current content:", content);
 
-    await writeFile(contentPath, content, { encoding: 'utf8' });
-    
+    await writeFile(contentPath, content, { encoding: "utf8" });
+
     if (oldContent !== content) {
       console.log("Sent email");
       await mail(process.env.EMAIL_TITLE, content);
@@ -56,4 +56,4 @@ export async function checkWebsite() {
       JSON.stringify(error)
     );
   }
-};
+}
