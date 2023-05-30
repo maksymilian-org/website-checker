@@ -10,7 +10,7 @@ export async function checkWebsite() {
 
   let oldContent = "";
   try {
-    oldContent = await readFile("content.txt", { encoding: 'utf8' });
+    oldContent = await readFile("./content.txt", { encoding: 'utf8' });
   } catch (error) {
     console.log(error);
   }
@@ -19,6 +19,7 @@ export async function checkWebsite() {
     // Launch the browser
     const browser = await puppeteer.launch({
       headless: false,
+      timeout: 60000
     });
 
     // Create a page
@@ -35,7 +36,7 @@ export async function checkWebsite() {
 
     console.log("Current content:", content);
 
-    await writeFile("content.txt", content, { encoding: 'utf8' });
+    await writeFile("./content.txt", content, { encoding: 'utf8' });
     
     if (oldContent !== content) {
       console.log("Sent email");
