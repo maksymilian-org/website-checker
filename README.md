@@ -1,7 +1,16 @@
 This Node.js application checks the content of any website in the cron. In case of differences in the selected HTML elements, it sends an email with the new content.
 
+Application could be used in two different ways:
+1. Inside Node.js cron jobs:
+  * Put value for `CRON_TIME` environment variable
+  * Run `npm start`
+
+2. By request to the server:
+  * Run `npm run server`
+  * Call http://localhost:3000/healthz
+
 ## Access token
-Create a new empty gist here: https://gist.github.com/ and generate a access token: https://github.com/settings/tokens/new?scopes=gist, then put it in the e
+Create a new empty gist file here: https://gist.github.com/ and generate a access token: https://github.com/settings/tokens/new?scopes=gist, then putproper values in `GIST_TOKEN` and `GIST_ID` environment variables.
 
 ## Environment variables:
 * `SITE_URL` - The URL of the site to check, e.g. `http://example.com`

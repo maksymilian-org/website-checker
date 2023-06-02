@@ -2,7 +2,7 @@ import express from 'express';
 import { checkWebsite } from './checker.js';
 
 const app = express();
-const port = process.env.PORT || 3456;
+const port = process.env.PORT || 3000;
 
 app.use('/healthz', async (req, res, next) => {
   console.log('Request: ', req.url);
